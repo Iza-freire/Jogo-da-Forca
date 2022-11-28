@@ -105,7 +105,7 @@ function App() {
   return (
     <div className='conteudoTela'>
 
-      <Jogo forca={forca} erro={erro} cor={cor} Iniciar={Iniciar} palavraTela={palavraTela} />
+      <Jogo forca={forca} erro={erro} cor={cor} Iniciar={Iniciar} palavraTela={palavraTela} palabraSorteada={palabraSorteada}/>
 
       <Letras alfabeto={alfabeto} letraClicada={letraClicada} clicarLetra={clicarLetra} />
 
