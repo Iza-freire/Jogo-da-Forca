@@ -1,7 +1,7 @@
-export default function Letras({alfabeto}){
+export default function Letras({alfabeto, letraClicada, clicarLetra}){
     return ( 
     <div className='Letras'>
-        {alfabeto.map((letra) => <button disabled={true}>{letra}</button>)}
+         {alfabeto.map((letra) => (<button onClick={() => letraClicada(letra)} key={letra} disabled={clicarLetra.includes(letra)}>{letra}</button>))}
     </div>
     )
 }

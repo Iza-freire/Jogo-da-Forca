@@ -16,27 +16,51 @@ import palavras from "./palavras";
 
 
 
-function App() {
-
+export default function App() {
+  const forca = [forca0, forca1, forca2, forca3, forca4, forca5, forca6]
   const alfabeto = [
     "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
   ]
   
-
+  const [erro, setErros] = useState(0)
   const [desabilitarTextInput, setDesabilitarTextInput] = useState(true)
-
+  const [palabraSorteada, setPalavraSorteada] = useState([])
+  const [palavraTela, setPalavraTela] = useState([])
+  const [clicarLetra, setCLicarLetra] = useState(alfabeto)
 
 
   function Iniciar(){
       setDesabilitarTextInput(false)
+      gerandoPalavras()
+      setErros(0)
+      setCLicarLetra([])
+
     } 
+
+  function gerandoPalavras(){
+    const i = Math.floor(Math.random()* palavras.length)
+    const Palavra = palavras[i] 
+    const percorrrerPalavra = Palavra.split("")
+    setPalavraSorteada(percorrrerPalavra)
+    console.log(Palavra)
+
+    let traco = []
+        for (let i in percorrrerPalavra) {
+            traco.push(" _")
+        }
+    setPalavraTela(traco)
+  }
+ 
+  function letraClicada(letra){
+    setCLicarLetra([...clicarLetra, letra])
+  }
 
   return (
     <div className='conteudoTela'>
 
-    <Jogo forca={forca0}  Iniciar={Iniciar}/>
+    <Jogo forca={forca} erro={erro} Iniciar={Iniciar} palavraTela={palavraTela}/>
 
-    <Letras alfabeto={alfabeto}/>
+    <Letras alfabeto={alfabeto} letraClicada={letraClicada} clicarLetra={clicarLetra}/>
 
     <Chute desabilitarTextInput={desabilitarTextInput}/>
       
@@ -45,4 +69,3 @@ function App() {
   );
 }
 
-export default App;
