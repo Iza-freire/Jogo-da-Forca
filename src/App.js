@@ -37,7 +37,7 @@ function App() {
     setErros(0)
     setCLicarLetra([])
     setChute("")
-
+    setCor("black")
 
   } 
 
@@ -46,7 +46,6 @@ function App() {
     const Palavra = palavras[i]
     const percorrrerPalavra = Palavra.split("")
     setPalavraSorteada(percorrrerPalavra)
-    console.log(Palavra)
 
     let traco = []
     for (let i in percorrrerPalavra) {
@@ -71,24 +70,42 @@ function App() {
       }
     })
     setPalavraTela(novaPalavrajogo)
+     if(!novaPalavrajogo.includes(" _")){
+      setCor("green")
+      finalizar()
   }
+}
   
   function errou(){
       const mudarImagemErros = erro + 1
       setErros (mudarImagemErros)
+      if(mudarImagemErros === 6){
+      finalizar()
+      setCor("red")
+    }
   }
-
   function chutarpalavra() {
     let escolhida = ""
     palabraSorteada.forEach((letra) => escolhida += letra)
-
+    if (chute === escolhida) {
+      setCor("green")
+    } else {
+      setCor("red")
+      setErros(6)
+    }
+    finalizar()
   }
 
+  function finalizar() {
+    setCLicarLetra(alfabeto)
+    setDesabilitarTextInput(true)
+    setPalavraTela(palabraSorteada)
+  }
 
   return (
     <div className='conteudoTela'>
 
-      <Jogo forca={forca} erro={erro}  Iniciar={Iniciar} palavraTela={palavraTela} />
+      <Jogo forca={forca} erro={erro} cor={cor} Iniciar={Iniciar} palavraTela={palavraTela} />
 
       <Letras alfabeto={alfabeto} letraClicada={letraClicada} clicarLetra={clicarLetra} />
 
