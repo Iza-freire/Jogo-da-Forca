@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.conteudoTela{
+    width: 100%;
+    height: 100%;
+    margin-top: 59px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.Forca{
+    width: 900px;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    justify-content: space-between;
+}
+.Forca img {
+    width: 400px;
+    height: 466px;
+}
+.Forca  button {
+    background-color: #27ae60;
+    width: 200px;
+    height: 60px;
+    box-shadow: 0 0 10px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    border-style: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    cursor: pointer;
+}
+button:active {
+    transform: scale(0.97);
+}
+.Forca h1 {
+    font-size: 45px;
+    margin-right: 5px;
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 68px;
+}
+.Letras{
+    width: 660px;
+    margin-left: 50px;
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.Letras button {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: #cfe6f7;
+    border: 1px solid #7aa7c7;
+    font-size: 16px;
+    color: #39739d;
+    font-weight: 700;
+    margin: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+.Letras  button:hover, .conteudoInput button:hover {
+  background-color: #74a8ce;
+  color: #2c5777;
+}
+
+.Letras button:disabled {
+  background-color: #a3afbb;
+  border: none;
+  color: #90969c;
+  cursor: default;
+}
+
+.Input {
+    width: 610px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 56px;
+    margin-left: 20px;
+}
+
+.Input button {
+   background-color: #cfe6f7;
+    border: 1px solid #7aa7c7;
+    font-size: 16px;
+    color: #39739d;
+    border-radius: 3px;
+    font-weight: 700;
+    margin: 4px;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+}
+
+
+.Input  input {
+    width: 330px;
+    height: 40px;
+    border-radius: 3px;
+    border: solid 1px #CCCCCC;
+    padding: 5px;
+    font-size: 18px;
+    box-shadow: 0 0 10px -4px rgba(0, 0, 0, 0.25);
+}
+
+.Input h2{
+  font-size: 18px;
+}
+
+.preto{
+    color: black;
+}
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
