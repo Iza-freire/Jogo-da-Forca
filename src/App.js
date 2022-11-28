@@ -47,6 +47,7 @@ function App() {
     const percorrrerPalavra = Palavra.split("")
     setPalavraSorteada(percorrrerPalavra)
 
+
     let traco = []
     for (let i in percorrrerPalavra) {
       traco.push(" _")
@@ -105,7 +106,7 @@ function App() {
   return (
     <div className='conteudoTela'>
 
-      <Jogo forca={forca} erro={erro} cor={cor} Iniciar={Iniciar} palavraTela={palavraTela} palabraSorteada={palabraSorteada}/>
+      <Jogo forca={forca} erro={erro} cor={cor} Iniciar={Iniciar} palavraTela={palavraTela} />
 
       <Letras alfabeto={alfabeto} letraClicada={letraClicada} clicarLetra={clicarLetra} />
 
