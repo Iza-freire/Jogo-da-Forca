@@ -1,4 +1,4 @@
-export default function Jogo({forca, Iniciar, erro, palavraTela}){
+export default function Jogo({forca, Iniciar, erro, palavraTela,}){
     return (
         <div className='Forca'>
             <img src={forca[erro]} />

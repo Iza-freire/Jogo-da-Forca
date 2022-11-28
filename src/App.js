@@ -16,7 +16,7 @@ import palavras from "./palavras";
 
 
 
-export default function App() {
+function App() {
   const forca = [forca0, forca1, forca2, forca3, forca4, forca5, forca6]
   const alfabeto = [
     "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
@@ -27,63 +27,75 @@ export default function App() {
   const [palabraSorteada, setPalavraSorteada] = useState([])
   const [palavraTela, setPalavraTela] = useState([])
   const [clicarLetra, setCLicarLetra] = useState(alfabeto)
+  const [chute, setChute] = useState("") 
+  const [cor, setCor] = useState("black") 
 
 
-  function Iniciar(){
-      setDesabilitarTextInput(false)
-      gerandoPalavras()
-      setErros(0)
-      setCLicarLetra([])
+  function Iniciar() {
+    setDesabilitarTextInput(false)
+    gerandoPalavras()
+    setErros(0)
+    setCLicarLetra([])
+    setChute("")
 
-    } 
 
-  function gerandoPalavras(){
-    const i = Math.floor(Math.random()* palavras.length)
-    const Palavra = palavras[i] 
+  } 
+
+  function gerandoPalavras() {
+    const i = Math.floor(Math.random() * palavras.length)
+    const Palavra = palavras[i]
     const percorrrerPalavra = Palavra.split("")
     setPalavraSorteada(percorrrerPalavra)
     console.log(Palavra)
 
     let traco = []
-        for (let i in percorrrerPalavra) {
-            traco.push(" _")
-        }
+    for (let i in percorrrerPalavra) {
+      traco.push(" _")
+    }
     setPalavraTela(traco)
   }
  
-  function letraClicada(letra){
-        if (palabraSorteada.includes(letra)){
-     acertou(letra)
-    } else{
+  function letraClicada(letra) {
+    setCLicarLetra([...clicarLetra, letra])
+    if (palabraSorteada.includes(letra)) {
+      acertou(letra)
+    } else {
       errou(letra)
     }
   }
-  function acertou(letra){
+  function acertou(letra) {
     const novaPalavrajogo = [...palavraTela]
     palabraSorteada.forEach((LetraPalavra, i) => {
-      if(palabraSorteada[i] === letra){
+      if (palabraSorteada[i] === letra) {
         novaPalavrajogo[i] = LetraPalavra
       }
     })
-     setPalavraTela(novaPalavrajogo)
+    setPalavraTela(novaPalavrajogo)
   }
   
   function errou(){
-    const mudarImagemErros = erro + 1
-    setErros (mudarImagemErros)
+      const mudarImagemErros = erro + 1
+      setErros (mudarImagemErros)
   }
+
+  function chutarpalavra() {
+    let escolhida = ""
+    palabraSorteada.forEach((letra) => escolhida += letra)
+
+  }
+
 
   return (
     <div className='conteudoTela'>
 
-    <Jogo forca={forca} erro={erro} Iniciar={Iniciar} palavraTela={palavraTela}/>
+      <Jogo forca={forca} erro={erro}  Iniciar={Iniciar} palavraTela={palavraTela} />
 
-    <Letras alfabeto={alfabeto} letraClicada={letraClicada} clicarLetra={clicarLetra}/>
+      <Letras alfabeto={alfabeto} letraClicada={letraClicada} clicarLetra={clicarLetra} />
 
-    <Chute desabilitarTextInput={desabilitarTextInput}/>
-      
+      <Chute desabilitarTextInput={desabilitarTextInput} chute={chute} setChute={setChute} chutarpalavra={chutarpalavra}/>
+
     </div>
 
   );
 }
-
+export default App
