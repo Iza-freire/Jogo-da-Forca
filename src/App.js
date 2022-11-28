@@ -52,7 +52,25 @@ export default function App() {
   }
  
   function letraClicada(letra){
-    setCLicarLetra([...clicarLetra, letra])
+        if (palabraSorteada.includes(letra)){
+     acertou(letra)
+    } else{
+      errou(letra)
+    }
+  }
+  function acertou(letra){
+    const novaPalavrajogo = [...palavraTela]
+    palabraSorteada.forEach((LetraPalavra, i) => {
+      if(palabraSorteada[i] === letra){
+        novaPalavrajogo[i] = LetraPalavra
+      }
+    })
+     setPalavraTela(novaPalavrajogo)
+  }
+  
+  function errou(){
+    const mudarImagemErros = erro + 1
+    setErros (mudarImagemErros)
   }
 
   return (
