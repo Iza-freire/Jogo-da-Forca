@@ -1,9 +1,9 @@
-export default function Jogo({forca, Iniciar}){
+export default function Jogo({forca, Iniciar, palavraTela}){
     return (
         <div className='Forca'>
             <img src={forca} />
             <button onClick={Iniciar}>Escolher palavras</button>
-            <h1>Teste</h1>
+            <h1>{palavraTela}</h1>
         </div>
     )
 }

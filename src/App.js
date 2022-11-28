@@ -23,16 +23,25 @@ function App() {
   ]
   
 
+  const [desabilitarTextInput, setDesabilitarTextInput] = useState(true)
+
+
+
+  function Iniciar(){
+      setDesabilitarTextInput(false)
+    } 
+
   return (
     <div className='conteudoTela'>
 
-    <Jogo forca={forca0}/>
+    <Jogo forca={forca0}  Iniciar={Iniciar}/>
 
     <Letras alfabeto={alfabeto}/>
 
-    <Chute/>
+    <Chute desabilitarTextInput={desabilitarTextInput}/>
       
     </div>
+
   );
 }
 
